@@ -27,7 +27,7 @@ public class NotificationMessageTest {
         driver.findElement(By.xpath("//a[normalize-space()='Click here']")).click();
         WebElement notificationText = driver.findElement(By.id("flash"));
         String actualText = notificationText.getText().replace("×", "").trim();
-        boolean isValid = actualText.equals("Action successful") || actualText.equals("Action unsuccessful, please try again");
+        boolean isValid = actualText.equals("Action successful") || actualText.equals("Action unsuccesful, please try again");
 
         assertTrue(isValid, actualText);
 
