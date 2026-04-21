@@ -2,6 +2,7 @@ package lesson1;
 
 public class Options {
     /*
+ChromeOptions объявляются до создания драйвера. Опции можно один раз настроить и переиспользовать их замет в драйвере new ChromeDriver(options)
 ChromeOptions options = new ChromeOptions();
 options.addArguments("--start-maximized"); - Запускает браузер в развёрнутом окне
 options.addArguments("--incognito"); - Режим инкогнито (не сохраняет историю, кэш, cookies)
