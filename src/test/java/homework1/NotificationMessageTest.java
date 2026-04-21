@@ -18,7 +18,7 @@ public class NotificationMessageTest {
 нотификации, проверить соответствие текста ожиданиям
      */
     @Test
-    public void notificationMessage() throws InterruptedException {
+    public void notificationMessage() {
         WebDriver driver = new ChromeDriver();
         driver.manage().window().setSize(new Dimension(1980, 1020));
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));

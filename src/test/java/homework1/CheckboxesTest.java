@@ -1,6 +1,5 @@
 package homework1;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,6 +9,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 public class CheckboxesTest {
 
@@ -28,15 +29,26 @@ checked, сделать unheck, проверить, что он unchecked
 
         driver.get("https://the-internet.herokuapp.com/checkboxes");
         List<WebElement> list = driver.findElements(By.cssSelector("[type=checkbox]"));
-        Assertions.assertFalse(list.get(0).isSelected());
 
+        // 1. Проверка начального состояния (до кликов)
+        assertAll(
+                () -> assertFalse(list.get(0).isSelected(), "Первый чекбокс должен быть не выбран"),
+                () -> assertTrue(list.get(1).isSelected(), "Второй чекбокс должен быть выбран")
+        );
+        // 2. Кликаем по первому чекбоксу
         list.get(0).click();
-        Assertions.assertTrue(list.get(0).isSelected());
-
-        Assertions.assertTrue(list.get(1).isSelected());
-
+        // 3. Проверка состояния после клика
+        assertAll(
+                () -> assertTrue(list.get(0).isSelected(), "После клика первый чекбокс должен быть выбран"),
+                () -> assertTrue(list.get(1).isSelected(), "Второй чекбокс не должен измениться")
+        );
+        // 4. Кликаем по второму чекбоксу
         list.get(1).click();
-        Assertions.assertFalse(list.get(1).isSelected());
+        // 5. Финальная проверка
+        assertAll(
+                () -> assertTrue(list.get(0).isSelected(), "Первый чекбокс должен остаться выбранным"),
+                () -> assertFalse(list.get(1).isSelected(), "После клика второй чекбокс должен быть не выбран")
+        );
 
         driver.quit();
     }

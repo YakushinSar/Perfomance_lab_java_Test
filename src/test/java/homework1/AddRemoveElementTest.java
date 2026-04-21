@@ -1,6 +1,5 @@
 package homework1;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -8,6 +7,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 import java.time.Duration;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class AddRemoveElementTest {
 
@@ -31,14 +33,15 @@ public class AddRemoveElementTest {
 
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
         driver.findElement(By.xpath("//button[text()='Add Element']")).click();
-
         int size = driver.findElements(By.xpath("//button[text()='Delete']")).size();
-        Assertions.assertEquals(2, size);
 
         driver.findElement(By.xpath("//button[text()='Delete']")).click();
-
         int size1 = driver.findElements(By.xpath("//button[text()='Delete']")).size();
-        Assertions.assertEquals(1, size1);
+
+        assertAll(
+                () -> assertEquals(2, size),
+                () -> assertEquals(1, size1)
+        );
 
         driver.quit();
     }

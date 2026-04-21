@@ -1,6 +1,5 @@
 package homework1;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -11,6 +10,9 @@ import org.openqa.selenium.support.ui.Select;
 
 import java.time.Duration;
 import java.util.List;
+
+import static org.junit.jupiter.api.Assertions.assertAll;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DropdownTest {
 
@@ -32,13 +34,15 @@ public class DropdownTest {
         Select select = new Select(dropdownElement);
 
         List<WebElement> allOptions = select.getOptions();
-        Assertions.assertEquals(3, allOptions.size());
+        assertAll(
+                () -> assertEquals(3, allOptions.size())
+        );
 
         select.selectByIndex(1);
-        Assertions.assertEquals("Option 1", select.getFirstSelectedOption().getText());
+        assertEquals("Option 1", select.getFirstSelectedOption().getText());
 
         select.selectByVisibleText("Option 2");
-        Assertions.assertEquals("Option 2", select.getFirstSelectedOption().getText());
+        assertEquals("Option 2", select.getFirstSelectedOption().getText());
 
         driver.quit();
     }

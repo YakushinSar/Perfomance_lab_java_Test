@@ -34,6 +34,7 @@ public class InputsTest {
 
         input.sendKeys(Keys.ARROW_DOWN);
         assertEquals("10", input.getAttribute("value"));
+
         driver.quit();
     }
 }
