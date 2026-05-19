@@ -10,8 +10,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import java.time.Duration;
 
 public class AddRemoveElementTest {
-//      должно в названии класса в начале или конце присутствовать слово Test
 
+    //      должно в названии класса в начале или конце присутствовать слово Test
     @Test
 /*
 Слово test в названии метода необязательно писать(В JUnit 3 нужно было, чтобы метод начинался с test (т.к. аннотаций

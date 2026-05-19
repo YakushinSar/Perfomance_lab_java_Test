@@ -10,6 +10,7 @@ import java.time.Duration;
 import java.util.Set;
 
 public class Cookies {
+
     @Test
 /*
 Слово test в названии метода необязательно писать(В JUnit 3 нужно было, чтобы метод начинался с test (т.к. аннотаций

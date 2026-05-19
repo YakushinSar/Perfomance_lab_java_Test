@@ -13,6 +13,7 @@ import java.time.Duration;
 import static org.testng.Assert.assertEquals;
 
 public class DynamicComtrolsTest {
+
     @Test
     public void checkDynamicControls() {
         ChromeOptions options = new ChromeOptions();
